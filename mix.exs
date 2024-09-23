@@ -4,6 +4,7 @@ defmodule Exray.MixProject do
   def project do
     [
       app: :exray,
+      compilers: [:unifex, :bundlex] ++ Mix.compilers,
       version: "0.1.0",
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
@@ -21,7 +22,8 @@ defmodule Exray.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-
+      {:unifex, "~> 1.2.0"},
+      {:credo, "~> 1.7.7", only: [:dev, :test], runtime: false}
     ]
   end
 end

@@ -27,3 +27,7 @@ exray-*.tar
 
 /.vscode/
 /.elixir_ls/
+
+/priv/bundlex/
+
+/c_src/exray/_generated/
