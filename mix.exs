@@ -4,7 +4,7 @@ defmodule Exray.MixProject do
   def project do
     [
       app: :exray,
-      compilers: [:unifex, :bundlex] ++ Mix.compilers,
+      compilers: Mix.compilers ++ [:unifex, :bundlex],
       version: "0.1.0",
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
@@ -23,6 +23,7 @@ defmodule Exray.MixProject do
   defp deps do
     [
       {:unifex, "~> 1.2.0"},
+      {:typed_struct, "~> 0.3.0"},
       {:credo, "~> 1.7.7", only: [:dev, :test], runtime: false}
     ]
   end

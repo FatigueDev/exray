@@ -1,5 +1,4 @@
 module Exray
-
-spec foo(num :: int) :: {:ok :: label, answer :: int}
-
-dirty :cpu, foo: 1
+interface [NIF, CNode]
+callback :load
+state_type "State"
