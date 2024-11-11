@@ -3,14 +3,16 @@ interface [NIF, CNode]
 callback :load
 state_type "State"
 
-# // Basic shapes collision detection functions
-# bool CheckCollisionRecs(Rectangle rec1, Rectangle rec2);                                           // Check collision between two rectangles
-# bool CheckCollisionCircles(Vector2 center1, float radius1, Vector2 center2, float radius2);        // Check collision between two circles
-# bool CheckCollisionCircleRec(Vector2 center, float radius, Rectangle rec);                         // Check collision between circle and rectangle
-# bool CheckCollisionPointRec(Vector2 point, Rectangle rec);                                         // Check if point is inside rectangle
-# bool CheckCollisionPointCircle(Vector2 point, Vector2 center, float radius);                       // Check if point is inside circle
-# bool CheckCollisionPointTriangle(Vector2 point, Vector2 p1, Vector2 p2, Vector2 p3);               // Check if point is inside a triangle
-# bool CheckCollisionPointPoly(Vector2 point, Vector2 *points, int pointCount);                      // Check if point is within a polygon described by array of vertices
-# bool CheckCollisionLines(Vector2 startPos1, Vector2 endPos1, Vector2 startPos2, Vector2 endPos2, Vector2 *collisionPoint); // Check the collision between two lines defined by two points each, returns collision point by reference
-# bool CheckCollisionPointLine(Vector2 point, Vector2 p1, Vector2 p2, int threshold);                // Check if point belongs to line created between two points [p1] and [p2] with defined margin in pixels [threshold]
-# Rectangle GetCollisionRec(Rectangle rec1, Rectangle rec2);                                         // Get collision rectangle for two rectangles collision
+Code.require_file("./c_src/exray/exray_types.exs")
+unifex_config__ = Exray.Unifex.Types.get_types(unifex_config__)
+
+spec check_collision_recs(rec1 :: exRectangle, rec2 :: exRectangle) :: {:ok :: label, colliding :: bool}
+spec check_collision_circles(center1 :: exVector2, radius1 :: float, center2 :: exVector2, radius2 :: float) :: {:ok :: label, colliding :: bool}
+spec check_collision_circle_rec(center :: exVector2, radius :: float, rec :: exRectangle) :: {:ok :: label, colliding :: bool}
+spec check_collision_point_rec(point :: exVector2, rec :: exRectangle) :: {:ok :: label, colliding :: bool}
+spec check_collision_point_circle(point :: exVector2, center :: exVector2, radius :: float) :: {:ok :: label, colliding :: bool}
+spec check_collision_point_triangle(point :: exVector2, p1 :: exVector2, p2 :: exVector2, p3 :: exVector2) :: {:ok :: label, colliding :: bool}
+spec check_collision_point_poly(point :: exVector2, points :: [exVector2], point_count :: int) :: {:ok :: label, colliding :: bool}
+spec check_collision_lines(start_pos_1 :: exVector2, end_pos_1 :: exVector2, start_pos_2 :: exVector2, end_pos_2 :: exVector2, collision_point :: [exVector2]) :: {:ok :: label, colliding :: bool}
+spec check_collision_point_line(point :: exVector2, p1 :: exVector2, p2 :: exVector2, threshold :: int) :: {:ok :: label, colliding :: bool}
+spec get_collision_rec(rec1 :: exRectangle, rec2 :: exRectangle) :: {:ok :: label, rect :: exRectangle}
