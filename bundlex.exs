@@ -87,6 +87,17 @@ defmodule Exray.BundlexProject do
         raylib: [{:precompiled, @blob}]
       ],
       compiler_flags: ["-Wno-narrowing"]
+    ],
+    shapes_collision: [
+      sources: ["shapes_collision.cpp"],
+      interface: [:nif, :cnode],
+      includes: @includes,
+      preprocessor: Unifex,
+      language: :cpp,
+      os_deps: [
+        raylib: [{:precompiled, @blob}]
+      ],
+      compiler_flags: ["-Wno-narrowing"]
     ]
   ]
   end
