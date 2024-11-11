@@ -44,12 +44,10 @@ defmodule Exray.Core.Window do
   end
 
   @doc """
-  Native Function: `IsWindowReady`
-
   Check if window has been initialized successfully
   """
-  @spec window_ready?() :: true | false
-  def window_ready?() do
+  @spec is_window_ready() :: true | false
+  def is_window_ready() do
     loader_boolean_result_to_predicate_result(
       @loader.is_window_ready()
     )
@@ -60,8 +58,8 @@ defmodule Exray.Core.Window do
 
   Check if window is currently fullscreen
   """
-  @spec window_fullscreen?() :: true | false
-  def window_fullscreen?() do
+  @spec is_window_fullscreen() :: true | false
+  def is_window_fullscreen() do
     loader_boolean_result_to_predicate_result(
       @loader.is_window_fullscreen()
     )
@@ -70,8 +68,8 @@ defmodule Exray.Core.Window do
   @doc """
   Check if window is currently hidden (only PLATFORM_DESKTOP)
   """
-  @spec window_hidden?() :: true | false
-  def window_hidden?() do
+  @spec is_window_hidden() :: true | false
+  def is_window_hidden() do
     loader_boolean_result_to_predicate_result(
       @loader.is_window_hidden()
     )
@@ -80,8 +78,8 @@ defmodule Exray.Core.Window do
   @doc """
   Check if window is currently minimized (only PLATFORM_DESKTOP)
   """
-  @spec window_minimized?() :: true | false
-  def window_minimized?() do
+  @spec is_window_minimized() :: true | false
+  def is_window_minimized() do
     loader_boolean_result_to_predicate_result(
       @loader.is_window_minimized()
     )
@@ -90,8 +88,8 @@ defmodule Exray.Core.Window do
   @doc """
   Check if window is currently maximized (only PLATFORM_DESKTOP)
   """
-  @spec window_maximized?() :: true | false
-  def window_maximized?() do
+  @spec is_window_maximized() :: true | false
+  def is_window_maximized() do
     loader_boolean_result_to_predicate_result(
       @loader.is_window_maximized()
     )
@@ -100,8 +98,8 @@ defmodule Exray.Core.Window do
   @doc """
   Check if window is currently focused (only PLATFORM_DESKTOP)
   """
-  @spec window_focused?() :: true | false
-  def window_focused?() do
+  @spec is_window_focused() :: true | false
+  def is_window_focused() do
     loader_boolean_result_to_predicate_result(
       @loader.is_window_focused()
     )
@@ -110,8 +108,8 @@ defmodule Exray.Core.Window do
   @doc """
   Check if window has been resized last frame
   """
-  @spec window_resized?() :: true | false
-  def window_resized?() do
+  @spec is_window_resized() :: true | false
+  def is_window_resized() do
     loader_boolean_result_to_predicate_result(
       @loader.is_window_resized()
     )
@@ -120,8 +118,8 @@ defmodule Exray.Core.Window do
   @doc """
   Check if one specific window flag is enabled
   """
-  @spec window_state?(non_neg_integer) :: true | false
-  def window_state?(flag) do
+  @spec is_window_state(non_neg_integer) :: true | false
+  def is_window_state(flag) do
     loader_boolean_result_to_predicate_result(
       @loader.is_window_state(flag)
     )

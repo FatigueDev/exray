@@ -3,7 +3,7 @@ defmodule Exray.Structs do
 
   use TypedStruct
 
-  typedstruct [module: Vector2] do
+  typedstruct [module: Vector2, enforce: true] do
     field :x, float, default: 0.0
     field :y, float, default: 0.0
   end
