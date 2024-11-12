@@ -1,6 +1,6 @@
-#include "exray.cpp"
+#include "../exray.cpp"
 #include "shapes_basic.h"
-#include "type_converter.cpp"
+#include "../type_converter.cpp"
 
 UNIFEX_TERM set_shapes_texture(UnifexEnv *env, exTexture texture, exRectangle source){
     SetShapesTexture(ToTexture(texture), ToRectangle(source));
@@ -32,12 +32,12 @@ UNIFEX_TERM draw_line_ex(UnifexEnv *env, exVector2 startPos, exVector2 endPos, d
     return draw_line_ex_result_ok(env);
 }
 
-UNIFEX_TERM draw_line_strip(UnifexEnv *env, exVector2 *points, unsigned int points_length, int point_count, exColor color){
+UNIFEX_TERM draw_line_strip(UnifexEnv *env, exVector2 *points, unsigned int points_length, exColor color){
     Vector2 converted[points_length];
     for(unsigned int i = 0; i < points_length; i++){
         converted[i] = ToVector2(points[i]);
     }
-    DrawLineStrip(converted, point_count, ToColor(color));
+    DrawLineStrip(converted, points_length, ToColor(color));
     return draw_line_strip_result_ok(env);
 }
 
@@ -166,21 +166,21 @@ UNIFEX_TERM draw_triangle_lines(UnifexEnv *env, exVector2 v1, exVector2 v2, exVe
     return draw_triangle_lines_result_ok(env);
 }
 
-UNIFEX_TERM draw_triangle_fan(UnifexEnv *env, exVector2* points, unsigned int points_length, int point_count, exColor color){
+UNIFEX_TERM draw_triangle_fan(UnifexEnv *env, exVector2* points, unsigned int points_length, exColor color){
     Vector2 converted[points_length];
     for(unsigned int i = 0; i < points_length; i++){
         converted[i] = ToVector2(points[i]);
     }
-    DrawTriangleFan(converted, point_count, ToColor(color));
+    DrawTriangleFan(converted, points_length, ToColor(color));
     return draw_triangle_fan_result_ok(env);
 }
 
-UNIFEX_TERM draw_triangle_strip(UnifexEnv *env, exVector2* points, unsigned int points_length, int point_count, exColor color){
+UNIFEX_TERM draw_triangle_strip(UnifexEnv *env, exVector2* points, unsigned int points_length, exColor color){
     Vector2 converted[points_length];
     for(unsigned int i = 0; i < points_length; i++){
         converted[i] = ToVector2(points[i]);
     }
-    DrawTriangleStrip(converted, point_count, ToColor(color));
+    DrawTriangleStrip(converted, points_length, ToColor(color));
     return draw_triangle_strip_result_ok(env);
 }
 

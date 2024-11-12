@@ -1,4 +1,4 @@
-#include "exray.cpp"
+#include "../exray.cpp"
 #include "core_timing.h"
 
 UNIFEX_TERM set_target_fps(UnifexEnv *env, int fps){

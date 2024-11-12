@@ -1,6 +1,6 @@
-#include "exray.cpp"
+#include "../exray.cpp"
 #include "core_drawing.h"
-#include "type_converter.cpp"
+#include "../type_converter.cpp"
 
 UNIFEX_TERM clear_background(UnifexEnv *env, exColor color){
     ClearBackground(ToColor(color));

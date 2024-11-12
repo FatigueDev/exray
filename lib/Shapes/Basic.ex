@@ -47,8 +47,8 @@ defmodule Exray.Shapes.Basic do
   @doc """
   Draw lines sequence (using gl lines)
   """
-  @spec draw_line_strip(points :: [Vector2], point_count :: integer, color :: Color) :: {:ok}
-  defdelegate draw_line_strip(points, point_count, color), to: @loader
+  @spec draw_line_strip(points :: [Vector2], color :: Color) :: {:ok}
+  defdelegate draw_line_strip(points, color), to: @loader
 
   @doc """
   Draw line segment cubic-bezier in-out interpolation
@@ -203,14 +203,14 @@ defmodule Exray.Shapes.Basic do
   @doc """
   Draw a triangle fan defined by points (first vertex is the center)
   """
-  @spec draw_triangle_fan(points :: [Vector2], point_count :: integer, color :: Color) :: {:ok}
-  defdelegate draw_triangle_fan(points, point_count, color), to: @loader
+  @spec draw_triangle_fan(points :: [Vector2], color :: Color) :: {:ok}
+  defdelegate draw_triangle_fan(points, color), to: @loader
 
   @doc """
   Draw a triangle strip defined by points
   """
-  @spec draw_triangle_strip(points :: [Vector2], point_count :: integer, color :: Color) :: {:ok}
-  defdelegate draw_triangle_strip(points, point_count, color), to: @loader
+  @spec draw_triangle_strip(points :: [Vector2], color :: Color) :: {:ok}
+  defdelegate draw_triangle_strip(points, color), to: @loader
 
   @doc """
   Draw a regular polygon (Vector version)

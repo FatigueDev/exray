@@ -14,7 +14,7 @@ spec draw_pixel_v(position :: exVector2, color :: exColor) :: {:ok :: label}
 spec draw_line(startPosX :: int, startPosY :: int, endPosX :: int, endPosY :: int, color :: exColor) :: {:ok :: label}
 spec draw_line_v(startPos :: exVector2, endPos :: exVector2, color :: exColor) :: {:ok :: label}
 spec draw_line_ex(startPos :: exVector2, endPos :: exVector2, thick :: float, color :: exColor) :: {:ok :: label}
-spec draw_line_strip(points :: [exVector2], point_count :: int, color :: exColor) :: {:ok :: label}
+spec draw_line_strip(points :: [exVector2], color :: exColor) :: {:ok :: label}
 spec draw_line_bezier(startPos :: exVector2, endPos :: exVector2, thick :: float, color :: exColor) :: {:ok :: label}
 
 spec draw_circle(centerX :: int, centerY :: int, radius :: float, color :: exColor) :: {:ok :: label}
@@ -45,8 +45,8 @@ spec draw_rectangle_rounded_lines(rec :: exRectangle, roundness :: float, segmen
 
 spec draw_triangle(v1 :: exVector2, v2 :: exVector2, v3 :: exVector2, color :: exColor) :: {:ok :: label}
 spec draw_triangle_lines(v1 :: exVector2, v2 :: exVector2, v3 :: exVector2, color :: exColor) :: {:ok :: label}
-spec draw_triangle_fan(points :: [exVector2], point_count :: int, color :: exColor) :: {:ok :: label}
-spec draw_triangle_strip(points :: [exVector2], point_count :: int, color :: exColor) :: {:ok :: label}
+spec draw_triangle_fan(points :: [exVector2], color :: exColor) :: {:ok :: label}
+spec draw_triangle_strip(points :: [exVector2], color :: exColor) :: {:ok :: label}
 
 spec draw_poly(center :: exVector2, sides :: int, radius :: float, rotation :: float, color :: exColor) :: {:ok :: label}
 spec draw_poly_lines(center :: exVector2, sides :: int, radius :: float, rotation :: float, color :: exColor) :: {:ok :: label}

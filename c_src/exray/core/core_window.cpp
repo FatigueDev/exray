@@ -1,6 +1,6 @@
-#include "exray.cpp"
+#include "../exray.cpp"
 #include "core_window.h"
-#include "type_converter.cpp"
+#include "../type_converter.cpp"
 
 UNIFEX_TERM init_window(UnifexEnv* env, int width, int height, char* title) {
     InitWindow(width, height, title);

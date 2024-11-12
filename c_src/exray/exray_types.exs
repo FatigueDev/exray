@@ -75,6 +75,7 @@ defmodule Exray.Unifex.Types do
       format: int
     }
     # type exTexture2D
+    # type exTexture2D
     # type exTextureCubemap
 
     type exRenderTexture :: %RenderTexture{

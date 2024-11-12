@@ -13,6 +13,7 @@ public:
 };
 
 #endif
+
 // Alias structs
 // typedef struct exVector3 exQuarternion;
 // typedef struct exTexture exTexture2D;

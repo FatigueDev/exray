@@ -1,4 +1,4 @@
-#include "exray.cpp"
+#include "../exray.cpp"
 #include "core_cursor.h"
 
 UNIFEX_TERM show_cursor(UnifexEnv *env){

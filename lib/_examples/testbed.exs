@@ -13,6 +13,7 @@ defmodule Testbed do
   import Exray.Core.Cursor
   import Exray.Core.Drawing
   import Exray.Core.Input.Keyboard
+  import Exray.Shapes.Basic
 
   def init() do
     init_window(500, 500, "Beans")
@@ -46,12 +47,19 @@ defmodule Testbed do
       begin_drawing()
 
       lines = [
-        %Vector2{x: 50.0, y: 25.0},
-        %Vector2{x: 30.0, y: 10.0},
-        %Vector2{x: 70.0, y: 40.0}
+        %Vector2{x: 50.0, y: 50.0},
+        %Vector2{x: 200.0, y: 50.0},
+        %Vector2{x: 200.0, y: 200.0},
+        # %Vector2{x: 50.0, y: 200.0},
+        # %Vector2{x: 50.0, y: 50.0}
       ]
 
-      Exray.Shapes.Basic.Loader.draw_line_strip(lines, 3, %Color{r: 0, g: 255, b: 100, a: 255})
+      line_color = %Color{r: 0, g: 255, b: 100, a: 255}
+
+
+
+      # draw_line_strip(lines, line_color)
+      # draw_circle(250, 250, 50.0, line_color)
 
       # Works like a charm.
       # Enum.each(1..200, fn num ->
@@ -67,4 +75,4 @@ defmodule Testbed do
   end
 end
 
-dbg Testbed.init()
+Testbed.init()

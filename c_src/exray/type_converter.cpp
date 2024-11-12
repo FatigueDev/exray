@@ -1,20 +1,14 @@
+#ifndef TYPE_CONVERTER
+#define TYPE_CONVERTER
+
 #include <raylib.h>
-
-#ifndef STRUCTS
-#define STRUCTS
-#include "structs.h"
-#endif
-
-typedef struct State State;
-
-#include <iostream>
 
 exVector2 ToExVector2(Vector2 from) {
     return exVector2{x: from.x, y: from.y};
 }
 
 Vector2 ToVector2(exVector2 from) {
-    return Vector2{x: from.x, y: from.y};
+    return Vector2{x: static_cast<float>(from.x), y: static_cast<float>(from.y)};
 }
 
 exVector3 ToExVector3(Vector3 from) {
@@ -171,3 +165,5 @@ Shader ToShader(exShader from) {
         locs: from.locs
     };
 }
+
+#endif
