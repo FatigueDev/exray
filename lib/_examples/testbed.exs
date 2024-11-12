@@ -7,12 +7,17 @@ defmodule Testbed do
 
   So far, so good. :)
   """
+
+
   alias Exray.Structs.Vector2
   alias Exray.Structs.Color
+
   import Exray.Core.Window
   import Exray.Core.Cursor
   import Exray.Core.Drawing
+  import Exray.Core.KeyCodes
   import Exray.Core.Input.Keyboard
+  import Exray.Core.Input.Mouse
   import Exray.Shapes.Basic
 
   def init() do
@@ -34,7 +39,14 @@ defmodule Testbed do
       IO.puts("Window should close now.")
     end
 
-    if {:ok, true} == is_key_pressed(32) do
+    # Probably going to change it so it always just returns the value only; not an :ok tuple
+    if {:ok, true} == is_mouse_button_pressed(0) do
+      {:ok, pos} = get_mouse_position()
+      IO.puts("#{pos.x}, #{pos.y}")
+    end
+
+    # Probably going to change it so it always just returns the value only; not an :ok tuple
+    if {:ok, true} == is_key_pressed(key_space()) do
       IO.puts("Pressed space!")
     end
 

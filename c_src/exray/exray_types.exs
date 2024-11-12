@@ -1,4 +1,5 @@
 defmodule Exray.Unifex.Types do
+  @moduledoc false
 
   def get_types(unifex_config__) do
     import Exray.Structs
@@ -213,8 +214,3 @@ defmodule Exray.Unifex.Types do
     unifex_config__
   end
 end
-
-# module Exray.Structs.Loader
-# interface [NIF, CNode]
-# callback :load
-# state_type "State"

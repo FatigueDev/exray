@@ -1,4 +1,9 @@
 defmodule Exray.Core.Cursor do
+
+  @moduledoc """
+  Show, hide and make sure your cursor is on screen.
+  """
+
   import DelegateUtils
 
   @loader Exray.Core.Cursor.Loader

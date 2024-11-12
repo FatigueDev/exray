@@ -1,5 +1,9 @@
 defmodule Exray.Shapes.Collision do
 
+  @moduledoc """
+  Check if two things intersect.
+  """
+
   @loader Exray.Shapes.Collision.Loader
 
   @doc """
@@ -41,8 +45,8 @@ defmodule Exray.Shapes.Collision do
   @doc """
   Check if point is within a polygon described by array of vertices
   """
-  @spec check_collision_point_poly(point :: Vector2, points :: [Vector2], point_count :: integer) :: {:ok, colliding :: boolean}
-  defdelegate check_collision_point_poly(point, points, point_count), to: @loader
+  @spec check_collision_point_poly(point :: Vector2, points :: [Vector2]) :: {:ok, colliding :: boolean}
+  defdelegate check_collision_point_poly(point, points), to: @loader
 
   @doc """
   Check the collision between two lines defined by two points each, returns collision point by reference

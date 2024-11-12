@@ -89,15 +89,7 @@ UNIFEX_TERM set_window_icon(UnifexEnv *env, exImage image){
 }
 
 UNIFEX_TERM set_window_icons(UnifexEnv *env, exImage* images, unsigned int images_length){
-    
-    Image buffer[images_length];
-
-    for(unsigned int i = 0; i < images_length; i++){
-        buffer[i] = ToImage(images[i]);
-    }
-
-    SetWindowIcons(buffer, images_length);
-
+    SetWindowIcons(ToImagePtr(images, images_length), images_length);
     return set_window_icons_result_ok(env);
 }
 
@@ -197,18 +189,15 @@ UNIFEX_TERM get_monitor_refresh_rate(UnifexEnv *env, int monitor){
 }
 
 UNIFEX_TERM get_window_position(UnifexEnv *env){
-    exVector2 result = ToExVector2(GetWindowPosition());
-    return get_window_position_result_ok(env, result);
+    return get_window_position_result_ok(env, ToExVector2(GetWindowPosition()));
 }
 
 UNIFEX_TERM get_window_scale_dpi(UnifexEnv *env){
-    exVector2 result = ToExVector2(GetWindowScaleDPI());
-    return get_window_scale_dpi_result_ok(env, result);
+    return get_window_scale_dpi_result_ok(env, ToExVector2(GetWindowScaleDPI()));
 }
 
 UNIFEX_TERM get_monitor_name(UnifexEnv *env, int monitor){
-    const char* result = GetMonitorName(monitor);
-    return get_monitor_name_result_ok(env, result);
+    return get_monitor_name_result_ok(env, GetMonitorName(monitor));
 }
 
 UNIFEX_TERM set_clipboard_text(UnifexEnv *env, char *text){
@@ -217,8 +206,7 @@ UNIFEX_TERM set_clipboard_text(UnifexEnv *env, char *text){
 }
 
 UNIFEX_TERM get_clipboard_text(UnifexEnv *env){
-    const char* result = GetClipboardText();
-    return get_clipboard_text_result_ok(env, result);
+    return get_clipboard_text_result_ok(env, GetClipboardText());
 }
 
 UNIFEX_TERM enable_event_waiting(UnifexEnv *env){

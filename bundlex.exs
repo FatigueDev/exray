@@ -84,6 +84,18 @@ defmodule Exray.BundlexProject do
       ],
       compiler_flags: ["-Wno-narrowing"]
     ],
+    core_input_mouse: [
+      sources: ["./core/core_input_mouse.cpp"],
+      interface: [:nif, :cnode],
+      includes: @includes,
+      lib_dirs: @lib_dirs,
+      preprocessor: Unifex,
+      language: :cpp,
+      os_deps: [
+        raylib: [{:precompiled, @blob}]
+      ],
+      compiler_flags: ["-Wno-narrowing"]
+    ],
     shapes_basic: [
       sources: ["./shapes/shapes_basic.cpp"],
       interface: [:nif, :cnode],
@@ -98,6 +110,18 @@ defmodule Exray.BundlexProject do
     ],
     shapes_collision: [
       sources: ["./shapes/shapes_collision.cpp"],
+      interface: [:nif, :cnode],
+      includes: @includes,
+      lib_dirs: @lib_dirs,
+      preprocessor: Unifex,
+      language: :cpp,
+      os_deps: [
+        raylib: [{:precompiled, @blob}]
+      ],
+      compiler_flags: ["-Wno-narrowing"]
+    ],
+    shapes_spline: [
+      sources: ["./shapes/shapes_spline.cpp"],
       interface: [:nif, :cnode],
       includes: @includes,
       lib_dirs: @lib_dirs,

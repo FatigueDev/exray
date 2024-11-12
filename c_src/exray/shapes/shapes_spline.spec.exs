@@ -3,21 +3,22 @@ interface [NIF, CNode]
 callback :load
 state_type "State"
 
-# // Splines drawing functions
-# void DrawSplineLinear(Vector2 *points, int pointCount, float thick, Color color);                  // Draw spline: Linear, minimum 2 points
-# void DrawSplineBasis(Vector2 *points, int pointCount, float thick, Color color);                   // Draw spline: B-Spline, minimum 4 points
-# void DrawSplineCatmullRom(Vector2 *points, int pointCount, float thick, Color color);              // Draw spline: Catmull-Rom, minimum 4 points
-# void DrawSplineBezierQuadratic(Vector2 *points, int pointCount, float thick, Color color);         // Draw spline: Quadratic Bezier, minimum 3 points (1 control point): [p1, c2, p3, c4...]
-# void DrawSplineBezierCubic(Vector2 *points, int pointCount, float thick, Color color);             // Draw spline: Cubic Bezier, minimum 4 points (2 control points): [p1, c2, c3, p4, c5, c6...]
-# void DrawSplineSegmentLinear(Vector2 p1, Vector2 p2, float thick, Color color);                    // Draw spline segment: Linear, 2 points
-# void DrawSplineSegmentBasis(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float thick, Color color); // Draw spline segment: B-Spline, 4 points
-# void DrawSplineSegmentCatmullRom(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float thick, Color color); // Draw spline segment: Catmull-Rom, 4 points
-# void DrawSplineSegmentBezierQuadratic(Vector2 p1, Vector2 c2, Vector2 p3, float thick, Color color); // Draw spline segment: Quadratic Bezier, 2 points, 1 control point
-# void DrawSplineSegmentBezierCubic(Vector2 p1, Vector2 c2, Vector2 c3, Vector2 p4, float thick, Color color); // Draw spline segment: Cubic Bezier, 2 points, 2 control points
+Code.require_file("./c_src/exray/exray_types.exs")
+unifex_config__ = Exray.Unifex.Types.get_types(unifex_config__)
 
-# // Spline segment point evaluation functions, for a given t [0.0f .. 1.0f]
-# Vector2 GetSplinePointLinear(Vector2 startPos, Vector2 endPos, float t);                           // Get (evaluate) spline point: Linear
-# Vector2 GetSplinePointBasis(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float t);              // Get (evaluate) spline point: B-Spline
-# Vector2 GetSplinePointCatmullRom(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float t);         // Get (evaluate) spline point: Catmull-Rom
-# Vector2 GetSplinePointBezierQuad(Vector2 p1, Vector2 c2, Vector2 p3, float t);                     // Get (evaluate) spline point: Quadratic Bezier
-# Vector2 GetSplinePointBezierCubic(Vector2 p1, Vector2 c2, Vector2 c3, Vector2 p4, float t);        // Get (evaluate) spline point: Cubic Bezier
+spec draw_spline_linear(points :: [exVector2], thick :: float, color :: exColor) :: {:ok :: label}
+spec draw_spline_basis(points :: [exVector2], thick :: float, color :: exColor) :: {:ok :: label}
+spec draw_spline_catmull_rom(points :: [exVector2], thick :: float, color :: exColor) :: {:ok :: label}
+spec draw_spline_bezier_quadratic(points :: [exVector2], thick :: float, color :: exColor) :: {:ok :: label}
+spec draw_spline_bezier_cubic(points :: [exVector2], thick :: float, color :: exColor) :: {:ok :: label}
+spec draw_spline_segment_linear(p1 :: exVector2, p2 :: exVector2, thick :: float, color :: exColor) :: {:ok :: label}
+spec draw_spline_segment_basis(p1 :: exVector2, p2 :: exVector2, p3 :: exVector2, p4 :: exVector2, thick :: float, color :: exColor) :: {:ok :: label}
+spec draw_spline_segment_catmull_rom(p1 :: exVector2, p2 :: exVector2, p3 :: exVector2, p4 :: exVector2, thick :: float, color :: exColor) :: {:ok :: label}
+spec draw_spline_segment_bezier_quadratic(p1 :: exVector2, c2 :: exVector2, p3 :: exVector2, thick :: float, color :: exColor) :: {:ok :: label}
+spec draw_spline_segment_bezier_cubic(p1 :: exVector2, c2 :: exVector2, c3 :: exVector2, p4 :: exVector2, thick :: float, color :: exColor) :: {:ok :: label}
+
+spec get_spline_point_linear(start_pos :: exVector2, end_pos :: exVector2, t :: float) :: {:ok :: label, point :: exVector2}
+spec get_spline_point_basis(p1 :: exVector2, p2 :: exVector2, p3 :: exVector2, p4 :: exVector2, t :: float) :: {:ok :: label, point :: exVector2}
+spec get_spline_point_catmull_rom(p1 :: exVector2, p2 :: exVector2, p3 :: exVector2, p4 :: exVector2, t :: float) :: {:ok :: label, point :: exVector2}
+spec get_spline_point_bezier_quad(p1 :: exVector2, c2 :: exVector2, p3 :: exVector2, t :: float) :: {:ok :: label, point :: exVector2}
+spec get_spline_point_bezier_cubic(p1 :: exVector2, c2 :: exVector2, c3 :: exVector2, p4 :: exVector2, t :: float) :: {:ok :: label, point :: exVector2}

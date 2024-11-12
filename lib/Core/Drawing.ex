@@ -1,5 +1,9 @@
 defmodule Exray.Core.Drawing do
 
+  @moduledoc """
+  Begin Draw / End Draw (2D, 3D, etc) calls. *REQUIRED* to process input events. Can be empty, though :)
+  """
+
   alias Exray.Structs.Color
   alias Exray.Structs.Camera2D
   alias Exray.Structs.Camera3D

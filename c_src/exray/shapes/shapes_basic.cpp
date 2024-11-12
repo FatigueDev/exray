@@ -33,11 +33,7 @@ UNIFEX_TERM draw_line_ex(UnifexEnv *env, exVector2 startPos, exVector2 endPos, d
 }
 
 UNIFEX_TERM draw_line_strip(UnifexEnv *env, exVector2 *points, unsigned int points_length, exColor color){
-    Vector2 converted[points_length];
-    for(unsigned int i = 0; i < points_length; i++){
-        converted[i] = ToVector2(points[i]);
-    }
-    DrawLineStrip(converted, points_length, ToColor(color));
+    DrawLineStrip(ToVector2Ptr(points, points_length), points_length, ToColor(color));
     return draw_line_strip_result_ok(env);
 }
 
@@ -167,20 +163,12 @@ UNIFEX_TERM draw_triangle_lines(UnifexEnv *env, exVector2 v1, exVector2 v2, exVe
 }
 
 UNIFEX_TERM draw_triangle_fan(UnifexEnv *env, exVector2* points, unsigned int points_length, exColor color){
-    Vector2 converted[points_length];
-    for(unsigned int i = 0; i < points_length; i++){
-        converted[i] = ToVector2(points[i]);
-    }
-    DrawTriangleFan(converted, points_length, ToColor(color));
+    DrawTriangleFan(ToVector2Ptr(points, points_length), points_length, ToColor(color));
     return draw_triangle_fan_result_ok(env);
 }
 
 UNIFEX_TERM draw_triangle_strip(UnifexEnv *env, exVector2* points, unsigned int points_length, exColor color){
-    Vector2 converted[points_length];
-    for(unsigned int i = 0; i < points_length; i++){
-        converted[i] = ToVector2(points[i]);
-    }
-    DrawTriangleStrip(converted, points_length, ToColor(color));
+    DrawTriangleStrip(ToVector2Ptr(points, points_length), points_length, ToColor(color));
     return draw_triangle_strip_result_ok(env);
 }
 

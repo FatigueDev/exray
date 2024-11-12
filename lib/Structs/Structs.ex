@@ -20,7 +20,7 @@ defmodule Exray.Structs do
     field :z, float, default: 0.0
     field :w, float, default: 0.0
   end
-  alias Vector4, as: Quaternion
+  # alias Vector4, as: Quaternion
 
   typedstruct [module: Matrix] do
     field :m0, float, default: 0.0
@@ -70,15 +70,15 @@ defmodule Exray.Structs do
     field :mipmaps, integer
     field :format, integer
   end
-  alias Texture, as: Texture2D
-  alias Texture, as: TextureCubemap
+  # alias Texture, as: Texture2D
+  # alias Texture, as: TextureCubemap
 
   typedstruct [module: RenderTexture, enforce: true] do
     field :id, non_neg_integer
     field :texture, Texture.t
     field :depth, Texture.t
   end
-  alias RenderTexture, as: RenderTexture2D
+  # alias RenderTexture, as: RenderTexture2D
 
   typedstruct [module: NPatchInfo, enforce: true] do
     field :source, Rectangle.t
@@ -113,7 +113,7 @@ defmodule Exray.Structs do
     field :fovy, float
     field :projection, integer
   end
-  alias Camera3D, as: Camera
+  # alias Camera3D, as: Camera
 
   typedstruct [module: Camera2D, enforce: true] do
     field :offset, Vector2.t

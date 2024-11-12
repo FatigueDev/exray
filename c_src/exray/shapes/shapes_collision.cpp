@@ -26,20 +26,20 @@ UNIFEX_TERM check_collision_point_triangle(UnifexEnv *env, exVector2 point, exVe
     return check_collision_point_triangle_result_ok(env, CheckCollisionPointTriangle(ToVector2(point), ToVector2(p1), ToVector2(p2), ToVector2(p3)));
 }
 
-UNIFEX_TERM check_collision_point_poly(UnifexEnv *env, exVector2 point, exVector2* points, unsigned int points_length, int point_count){
-    Vector2 converted[points_length];
-    for(unsigned int i = 0; i < points_length; i++){
-        converted[i] = ToVector2(points[i]);
-    }
-    return check_collision_point_poly_result_ok(env, CheckCollisionPointPoly(ToVector2(point), converted, points_length));
+UNIFEX_TERM check_collision_point_poly(UnifexEnv *env, exVector2 point, exVector2* points, unsigned int points_length){
+    return check_collision_point_poly_result_ok(env, CheckCollisionPointPoly(ToVector2(point), ToVector2Ptr(points, points_length), points_length));
 }
 
 UNIFEX_TERM check_collision_lines(UnifexEnv *env, exVector2 start_pos_1, exVector2 end_pos_1, exVector2 start_pos_2, exVector2 end_pos_2, exVector2* collision_point, unsigned int collision_point_length){
-    Vector2 converted[collision_point_length];
-    for(unsigned int i = 0; i < collision_point_length; i++){
-        converted[i] = ToVector2(collision_point[i]);
-    }
-    return check_collision_lines_result_ok(env, CheckCollisionLines(ToVector2(start_pos_1), ToVector2(end_pos_1), ToVector2(start_pos_2), ToVector2(end_pos_2), converted));
+    return check_collision_lines_result_ok(env,
+        CheckCollisionLines(
+            ToVector2(start_pos_1),
+            ToVector2(end_pos_1),
+            ToVector2(start_pos_2),
+            ToVector2(end_pos_2),
+            ToVector2Ptr(collision_point, collision_point_length)
+        )
+    );
 }
 
 UNIFEX_TERM check_collision_point_line(UnifexEnv *env, exVector2 point, exVector2 p1, exVector2 p2, int threshold){

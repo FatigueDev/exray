@@ -1,12 +1,15 @@
 defmodule Exray.Core.Window do
+
+  @moduledoc """
+  Open, manage and handle the window that contains the cool stuff you create.
+  """
+
   import DelegateUtils
 
   alias Exray.Structs.Vector2
   alias Exray.Structs.Image
 
   @loader Exray.Core.Window.Loader
-
-  @moduledoc false
 
   @doc """
   Initialize window and OpenGL context

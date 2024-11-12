@@ -1,5 +1,9 @@
 defmodule Exray.Core.Input.Keyboard do
 
+  @moduledoc """
+  Input control for your keyboard
+  """
+
   @loader Exray.Core.Input.Keyboard.Loader
 
   @doc """

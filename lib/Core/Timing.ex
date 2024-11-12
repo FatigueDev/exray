@@ -1,5 +1,9 @@
 defmodule Exray.Core.Timing do
 
+  @moduledoc """
+  Handle frame timing (Set FPS, get Delta Time (get_frame_time))
+  """
+
   @loader Exray.Core.Timing.Loader
 
   @doc """

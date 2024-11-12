@@ -1,5 +1,10 @@
 defmodule Exray.Shapes.Basic do
-  import DelegateUtils
+
+  @moduledoc """
+  Draw pixels, lines and other basic geometry.
+  """
+
+  # import DelegateUtils
 
   alias Exray.Structs.Texture
   alias Exray.Structs.Rectangle
