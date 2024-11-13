@@ -206,4 +206,39 @@ Shader ToShader(exShader from) {
     };
 }
 
+exRay ToExRay(Ray from) {
+    return exRay{
+        position: ToExVector3(from.position),
+        direction: ToExVector3(from.direction)
+    };
+}
+
+Ray ToRay(exRay from) {
+    return Ray{
+        position: ToVector3(from.position),
+        direction: ToVector3(from.direction)
+    };
+}
+
+exMatrix ToExMatrix(Matrix from) {
+    return exMatrix{
+        m0: from.m0,
+        m4: from.m4,
+        m8: from.m8,
+        m12: from.m12,
+        m1: from.m1,
+        m5: from.m5,
+        m9: from.m9,
+        m13: from.m13,
+        m2: from.m2,
+        m6: from.m6,
+        m10: from.m10,
+        m14: from.m14,
+        m3: from.m3,
+        m7: from.m7,
+        m11: from.m11,
+        m15: from.m15
+    };
+}
+
 #endif

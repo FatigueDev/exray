@@ -5,7 +5,7 @@ defmodule Exray.MixProject do
     [
       app: :exray,
       compilers: Mix.compilers ++ [:unifex, :bundlex],
-      version: "0.1.0",
+      version: "0.3.0",
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
       description: description(),
@@ -54,22 +54,32 @@ defmodule Exray.MixProject do
     [
       main: "readme",
       source_ref: "master",
-      extras: ["README.md", "guides/opening-a-window.md"],
+      extras: [
+        "README.md",
+        "doc_extras/guides/opening-a-window.md",
+        "doc_extras/changelog.md",
+        "doc_extras/completed-modules.md"
+      ],
       groups_for_extras: [
+        "Changelogs/Completion": ["doc_extras/changelog.md", "doc_extras/completed-modules.md"],
         "Getting Started": "README.md",
-        "Guides": ~r"guides/.*\.md$"
+        "Guides": ~r"doc_extras/guides/.*\.md$"
       ],
       groups_for_modules: [
         "Core": [
           Exray.Core.Cursor,
           Exray.Core.Drawing,
           Exray.Core.Input.Keyboard,
+          Exray.Core.Input.Mouse,
+          Exray.Core.KeyCodes,
+          Exray.Core.Screenspace,
           Exray.Core.Timing,
           Exray.Core.Window
         ],
         "Shapes": [
           Exray.Shapes.Basic,
-          Exray.Shapes.Collision
+          Exray.Shapes.Collision,
+          Exray.Shapes.Spline
         ],
         "Structs": [
           Exray.Structs.AutomationEvent,

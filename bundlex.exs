@@ -48,6 +48,18 @@ defmodule Exray.BundlexProject do
       ],
       compiler_flags: ["-Wno-narrowing"]
     ],
+    core_screenspace: [
+      sources: ["./core/core_screenspace.cpp"],
+      interface: [:nif, :cnode],
+      includes: @includes,
+      lib_dirs: @lib_dirs,
+      preprocessor: Unifex,
+      language: :cpp,
+      os_deps: [
+        raylib: [{:precompiled, @blob}]
+      ],
+      compiler_flags: ["-Wno-narrowing"]
+    ],
     core_timing: [
       sources: ["./core/core_timing.cpp"],
       interface: [:nif, :cnode],

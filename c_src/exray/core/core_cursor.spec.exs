@@ -3,9 +3,9 @@ interface [NIF, CNode]
 callback :load
 state_type "State"
 
-spec show_cursor() :: {:ok :: label}
-spec hide_cursor() :: {:ok :: label}
-spec is_cursor_hidden() :: {:ok :: label, is_cursor_hidden :: bool}
-spec enable_cursor() :: {:ok :: label}
-spec disable_cursor() :: {:ok :: label}
-spec is_cursor_on_screen() :: {:ok :: label, is_cursor_on_screen :: bool}
+spec show_cursor() :: :ok
+spec hide_cursor() :: :ok
+spec cursor_is_hidden() :: cursor_is_hidden :: bool
+spec enable_cursor() :: :ok
+spec disable_cursor() :: :ok
+spec cursor_is_on_screen() :: cursor_is_on_screen :: bool

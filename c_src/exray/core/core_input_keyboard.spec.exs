@@ -3,11 +3,11 @@ interface [NIF, CNode]
 callback :load
 state_type "State"
 
-spec is_key_pressed(key :: int) :: {:ok :: label, pressed :: bool}
-spec is_key_pressed_repeat(key :: int) :: {:ok :: label, pressed_repeat :: bool}
-spec is_key_down(key :: int) :: {:ok :: label, key_down :: bool}
-spec is_key_released(key :: int) :: {:ok :: label, key_released :: bool}
-spec is_key_up(key :: int) :: {:ok :: label, key_up :: bool}
-spec get_key_pressed() :: {:ok :: label, key :: int}
-spec get_char_pressed() :: {:ok :: label, key :: int}
-spec set_exit_key(key :: int) :: {:ok :: label}
+spec key_is_pressed(key :: int) :: key_pressed :: bool
+spec key_is_pressed_repeat(key :: int) :: key_pressed_repeat :: bool
+spec key_is_down(key :: int) :: key_down :: bool
+spec key_is_released(key :: int) :: key_released :: bool
+spec key_is_up(key :: int) :: key_up :: bool
+spec get_key_pressed() :: key :: int
+spec get_char_pressed() :: key :: int
+spec set_exit_key(key :: int) :: :ok

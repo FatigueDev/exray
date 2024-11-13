@@ -3,28 +3,28 @@
 
 UNIFEX_TERM show_cursor(UnifexEnv *env){
     ShowCursor();
-    return show_cursor_result_ok(env);
+    return show_cursor_result(env);
 }
 
 UNIFEX_TERM hide_cursor(UnifexEnv *env){
     HideCursor();
-    return hide_cursor_result_ok(env);
+    return hide_cursor_result(env);
 }
 
-UNIFEX_TERM is_cursor_hidden(UnifexEnv *env){
-    return is_cursor_hidden_result_ok(env, IsCursorHidden());
+UNIFEX_TERM cursor_is_hidden(UnifexEnv *env){
+    return cursor_is_hidden_result(env, IsCursorHidden());
 }
 
 UNIFEX_TERM enable_cursor(UnifexEnv *env){
     EnableCursor();
-    return enable_cursor_result_ok(env);
+    return enable_cursor_result(env);
 }
 
 UNIFEX_TERM disable_cursor(UnifexEnv *env){
     DisableCursor();
-    return disable_cursor_result_ok(env);
+    return disable_cursor_result(env);
 }
 
-UNIFEX_TERM is_cursor_on_screen(UnifexEnv *env){
-    return is_cursor_on_screen_result_ok(env, IsCursorOnScreen());
+UNIFEX_TERM cursor_is_on_screen(UnifexEnv *env){
+    return cursor_is_on_screen_result(env, IsCursorOnScreen());
 }

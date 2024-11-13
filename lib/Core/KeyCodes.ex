@@ -1,7 +1,7 @@
 defmodule Exray.Core.KeyCodes do
 
   @moduledoc """
-  A list of GLFW keycodes as nifty little functions. `import Exray.KeyCodes` to put them to work. Not even a NIF! :)
+  A list of GLFW keycodes as nifty little functions. `import Exray.Core.KeyCodes` to put them to work. Not even a NIF! :)
   """
 
   def key_space, do: 32

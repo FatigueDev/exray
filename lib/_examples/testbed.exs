@@ -39,21 +39,33 @@ defmodule Testbed do
       IO.puts("Window should close now.")
     end
 
-    # Probably going to change it so it always just returns the value only; not an :ok tuple
-    if {:ok, true} == is_mouse_button_pressed(0) do
-      {:ok, pos} = get_mouse_position()
-      IO.puts("#{pos.x}, #{pos.y}")
+    if mouse_button_is_pressed?(0) do
+      IO.puts("Clickity clack you pressed mouse 0")
     end
 
-    # Probably going to change it so it always just returns the value only; not an :ok tuple
-    if {:ok, true} == is_key_pressed(key_space()) do
-      IO.puts("Pressed space!")
+    if key_is_pressed?(key_space()) do
+      IO.puts("Pressed spacebar")
     end
+
+    # if cursor_is_on_screen?() do
+    #   IO.puts("Cursor is on screen")
+    # end
+
+    # # Probably going to change it so it always just returns the value only; not an :ok tuple
+    # if {:ok, true} == is_mouse_button_pressed(0) do
+    #   {:ok, pos} = get_mouse_position()
+    #   IO.puts("#{pos.x}, #{pos.y}")
+    # end
+
+    # # Probably going to change it so it always just returns the value only; not an :ok tuple
+    # if {:ok, true} == is_key_pressed(key_space()) do
+    #   IO.puts("Pressed space!")
+    # end
 
   end
 
   def draw() do
-    if is_window_ready() do
+    if window_is_ready?() do
       color = %Color{r: 50, g: 50, b: 50, a: 100}
       clear_background(color)
       begin_drawing()
