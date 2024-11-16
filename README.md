@@ -6,6 +6,11 @@
 ### As of 0.5.0, Exray's NIFs will need to be compiled _manually_.
 ### Please see [information on compilation below!](#compiling-exray-nifs)
 
+## Get In Touch!
+Want to get shoot the breeze or show off some cool creations?\
+I frequent the [Elixir Language Discord](https://discord.gg/elixir) and post dev updates in the #share forum post for Exray.\
+Feel free to `@_lila` at any time, happy to shoot the breeze.
+
 ## Installation
 
 ### Adding Exray to your mix.exs dependencies
