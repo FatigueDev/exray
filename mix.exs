@@ -44,7 +44,8 @@ defmodule Exray.MixProject do
       name: "exray",
       # These are the default files included in the package
       files: ~w(c_src lib priv doc_extras bundlex.exs .formatter.exs mix.exs README.*),
-      exclude_patterns: ~w(priv/bundlex lib/_examples c_src/**/_generated),
+      exclude_patterns:
+        ~w(priv/bundlex lib/_examples #{Path.wildcard("c_src/**/_generated") |> Enum.join(" ")}),
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => "https://github.com/FatigueDev/exray"}
     ]
