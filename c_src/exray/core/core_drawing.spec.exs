@@ -4,7 +4,11 @@ callback(:load)
 callback(:upgrade)
 state_type("State")
 
-Code.require_file("./c_src/exray/exray_types.exs")
+Code.require_file(
+  "./c_src/exray/exray_types.exs",
+  Bundlex.Helper.MixHelper.get_project_dir(:exray) |> elem(1)
+)
+
 unifex_config__ = Exray.Unifex.Types.get_types(unifex_config__)
 
 spec(clear_background(color :: exColor) :: :ok)

@@ -1,23 +1,27 @@
-module Exray.Textures.Image.Loader
-interface [NIF, CNode]
-callback :load
-callback :upgrade
-state_type "State"
+module(Exray.Textures.Image.Loader)
+interface([NIF, CNode])
+callback(:load)
+callback(:upgrade)
+state_type("State")
 
-Code.require_file("./c_src/exray/exray_types.exs")
+Code.require_file(
+  "./c_src/exray/exray_types.exs",
+  Bundlex.Helper.MixHelper.get_project_dir(:exray) |> elem(1)
+)
+
 unifex_config__ = Exray.Unifex.Types.get_types(unifex_config__)
 
 #### ---- DEBUG ------
 
-  # Texture2D LoadTextureFromImage(Image image);                                                       // Load texture from image data
-  spec load_texture_from_image(image :: exImage) :: texture :: exTexture
-  # void DrawTexture(Texture2D texture, int posX, int posY, Color tint);
-  spec draw_texture(texture :: exTexture, pos_x :: int, pos_y :: int, tint :: exColor) :: :ok
+# Texture2D LoadTextureFromImage(Image image);                                                       // Load texture from image data
+spec(load_texture_from_image(image :: exImage) :: texture :: exTexture)
+# void DrawTexture(Texture2D texture, int posX, int posY, Color tint);
+spec(draw_texture(texture :: exTexture, pos_x :: int, pos_y :: int, tint :: exColor) :: :ok)
 
 ## /DEBUG
 
 # Image LoadImage(const char *fileName);                                                             // Load image from file into CPU memory (RAM)
-spec load_image(file_name :: string) :: image :: exImage
+spec(load_image(file_name :: string) :: image :: exImage)
 
 # Image LoadImageRaw(const char *fileName, int width, int height, int format, int headerSize);       // Load image from RAW file data
 # Image LoadImageSvg(const char *fileNameOrString, int width, int height);                           // Load image from SVG file data or string with specified size
