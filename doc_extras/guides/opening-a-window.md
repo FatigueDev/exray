@@ -2,7 +2,7 @@
 
 ## Baby Steps - Running from IEX to get the vibe
 
-Once you have ensured that you are setup (added the `:exray` version to your mix dependencies), you're ready to rumble.
+Once you have ensured that you are setup by adding `:exray` to your [mix dependencies](../../README.md#adding-exray-to-your-mixexs-dependencies) and [compiled your NIFs](../../README.md#compiling-exray-nifs), you're ready to rumble.
 
 Begin by running `iex -S mix` in the root of your project, then try the following:
 
@@ -22,37 +22,7 @@ iex> init_window(200, 200, "Hello World!")
 #> [INFO] : Platform backend: DESKTOP (GLFW)
 #> [INFO] : Supported raylib modules:
 #> [INFO] :     > rcore:..... loaded (mandatory)
-#> [INFO] :     > rlgl:...... loaded (mandatory)
-#> [INFO] :     > rshapes:... loaded (optional)
-#> [INFO] :     > rtextures:. loaded (optional)
-#> [INFO] :     > rtext:..... loaded (optional)
-#> [INFO] :     > rmodels:... loaded (optional)
-#> [INFO] :     > raudio:.... loaded (optional)
-#> [INFO] : DISPLAY: Device initialized successfully
-#> [INFO] :     > Display size: 1920 x 1080
-#> [INFO] :     > Screen size:  200 x 200
-#> [INFO] :     > Render size:  200 x 200
-#> [INFO] :     > Viewport offsets: 0, 0
-#> [INFO] : GLAD: OpenGL extensions loaded successfully
-#> [INFO] : GL: Supported extensions count: 390
-#> [INFO] : GL: OpenGL device information:
-#> [INFO] :     > Vendor:   NVIDIA Corporation
-#> [INFO] :     > Renderer: NVIDIA GeForce GTX 1080/PCIe/SSE2
-#> [INFO] :     > Version:  3.3.0 NVIDIA 565.57.01
-#> [INFO] :     > GLSL:     3.30 NVIDIA via Cg compiler
-#> [INFO] : GL: VAO extension detected, VAO functions loaded successfully
-#> [INFO] : GL: NPOT textures extension detected, full NPOT textures supported
-#> [INFO] : GL: DXT compressed textures supported
-#> [INFO] : GL: ETC2/EAC compressed textures supported
-#> [INFO] : PLATFORM: DESKTOP (GLFW): Initialized successfully
-#> [INFO] : TEXTURE: [ID 1] Texture loaded successfully (1x1 | R8G8B8A8 | 1 mipmaps)
-#> [INFO] : TEXTURE: [ID 1] Default texture loaded successfully
-#> [INFO] : SHADER: [ID 1] Vertex shader compiled successfully
-#> [INFO] : SHADER: [ID 2] Fragment shader compiled successfully
-#> [INFO] : SHADER: [ID 3] Program shader loaded successfully
-#> [INFO] : SHADER: [ID 3] Default shader loaded successfully
-#> [INFO] : RLGL: Render batch vertex buffers loaded successfully in RAM (CPU)
-#> [INFO] : RLGL: Render batch vertex buffers loaded successfully in VRAM (GPU)
+#> ... SNIP ...
 #> [INFO] : RLGL: Default OpenGL state initialized successfully
 #> [INFO] : TEXTURE: [ID 2] Texture loaded successfully (128x128 | GRAY_ALPHA | 1 mipmaps)
 #> [INFO] : FONT: Default font loaded successfully (224 glyphs)

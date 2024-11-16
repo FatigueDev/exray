@@ -30,7 +30,7 @@ defmodule Mix.Tasks.Compile.Exray do
   end
 
   # Shamelessly copy pasting the compile.unifex code because they discard `args`, which they should use to select path
-  def compile_unifex(exray_root) do
+  defp compile_unifex(exray_root) do
     exray_root
     |> InterfaceIO.get_interfaces_specs!()
     |> Enum.each(fn {name, dir, specs_file} ->
@@ -44,7 +44,7 @@ defmodule Mix.Tasks.Compile.Exray do
   end
 
   # Shamelessly copy pasting the compile.bundlex code because they discard `args`, which they should use to select app
-  def compile_bundlex() do
+  defp compile_bundlex() do
     commands = []
 
     app = MixHelper.get_app!(:exray)

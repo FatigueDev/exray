@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.0
+- Added a [new build process for NIF compilation](../README.md#why-do-i-have-to-compile-the-nifs-manually-now).
+
 ## 0.4.0
 - Added the start of the Core.Text module, which includes Loading and Drawing modules.
 - Added Core.FrameControl (doesn't work with our precompiled Raylib, though).

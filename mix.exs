@@ -5,7 +5,7 @@ defmodule Exray.MixProject do
     [
       app: :exray,
       compilers: Mix.compilers(),
-      version: "0.4.0",
+      version: "0.5.0",
       elixir: "~> 1.17.3",
       start_permanent: Mix.env() == :prod,
       description: description(),
