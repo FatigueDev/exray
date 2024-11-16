@@ -1,7 +1,5 @@
 defmodule Exray.Examples.SuperCoolGame do
-  @moduledoc """
-  This is the example for the "Your first Exray application" guide.
-  """
+  @moduledoc false
 
   # We import Exray.Core.Window, like we did in IEX.
   import Exray.Core.Window

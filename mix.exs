@@ -4,7 +4,7 @@ defmodule Exray.MixProject do
   def project do
     [
       app: :exray,
-      compilers: [:unifex, :bundlex] ++ Mix.compilers(),
+      compilers: Mix.compilers(),
       version: "0.4.0",
       elixir: "~> 1.17.3",
       start_permanent: Mix.env() == :prod,
