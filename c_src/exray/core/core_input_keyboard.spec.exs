@@ -1,6 +1,7 @@
 module Exray.Core.Input.Keyboard.Loader
 interface [NIF, CNode]
 callback :load
+callback :upgrade
 state_type "State"
 
 spec key_is_pressed(key :: int) :: key_pressed :: bool

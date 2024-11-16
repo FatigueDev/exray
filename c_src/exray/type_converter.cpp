@@ -3,9 +3,6 @@
 
 #include <raylib.h>
 
-template<class T, size_t N>
-constexpr unsigned int size(T (&arr)[N]) { return size(arr); }
-
 exVector2 ToExVector2(Vector2 from) {
     return exVector2{x: from.x, y: from.y};
 }
@@ -51,6 +48,14 @@ exRectangle ToExRectangle(Rectangle from) {
     };
 }
 
+exRectangle* ToExRectanglePtr(Rectangle *from, unsigned int length) {
+    exRectangle* converted = (exRectangle*)malloc(sizeof(exRectangle) * length);
+    for(unsigned int i = 0; i < length; i++){
+        converted[i] = ToExRectangle(from[i]);
+    }
+    return converted;
+}
+
 Rectangle ToRectangle(exRectangle from) {
     return Rectangle{
         x: static_cast<float>(from.x),
@@ -58,6 +63,14 @@ Rectangle ToRectangle(exRectangle from) {
         width: static_cast<float>(from.width),
         height: static_cast<float>(from.height)
     };
+}
+
+Rectangle* ToRectanglePtr(exRectangle *from, unsigned int length) {
+    Rectangle* converted = (Rectangle*)malloc(sizeof(Rectangle) * length);
+    for(unsigned int i = 0; i < length; i++){
+        converted[i] = ToRectangle(from[i]);
+    }
+    return converted;
 }
 
 exImage ToExImage(UnifexEnv *env, Image from) {
@@ -109,10 +122,10 @@ exColor ToExColor(Color from) {
 
 Color ToColor(exColor from) {
     return Color{
-        r: static_cast<unsigned char>(from.r),
-        g: static_cast<unsigned char>(from.g),
-        b: static_cast<unsigned char>(from.b),
-        a: static_cast<unsigned char>(from.a)
+        r: (unsigned char)from.r,
+        g: (unsigned char)from.g,
+        b: (unsigned char)from.b,
+        a: (unsigned char)from.a
     };
 }
 
@@ -174,6 +187,66 @@ Texture ToTexture(exTexture from) {
     };
 }
 
+exGlyphInfo ToExGlyphInfo(UnifexEnv *env, GlyphInfo from){
+    return exGlyphInfo{
+        value: from.value,
+        offsetX: from.offsetX,
+        offsetY: from.offsetY,
+        advanceX: from.advanceX,
+        image: ToExImage(env, from.image)
+    };
+}
+
+exGlyphInfo* ToExGlyphInfoPtr(UnifexEnv *env, GlyphInfo *from, unsigned int length){
+    exGlyphInfo* converted = (exGlyphInfo*)malloc(sizeof(exGlyphInfo) * length);
+    for(unsigned int i = 0; i < length; i++){
+        converted[i] = ToExGlyphInfo(env, from[i]);
+    }
+    return converted;
+}
+
+GlyphInfo ToGlyphInfo(exGlyphInfo from){
+    return GlyphInfo{
+        value: from.value,
+        offsetX: from.offsetX,
+        offsetY: from.offsetY,
+        advanceX: from.advanceX,
+        image: ToImage(from.image)
+    };
+}
+
+GlyphInfo* ToGlyphInfoPtr(exGlyphInfo *from, unsigned int length){
+    GlyphInfo* converted = (GlyphInfo*)malloc(sizeof(GlyphInfo) * length);
+    for(unsigned int i = 0; i < length; i++){
+        converted[i] = ToGlyphInfo(from[i]);
+    }
+    return converted;
+}
+
+exFont ToExFont(UnifexEnv *env, Font from) {
+    return exFont{
+        baseSize: from.baseSize, 
+        glyphCount: from.glyphCount,
+        glyphPadding: from.glyphPadding,
+        texture: ToExTexture(from.texture),
+        recs: ToExRectanglePtr(from.recs, from.glyphCount),
+        recs_length: (unsigned int)from.glyphCount,
+        glyphs: ToExGlyphInfoPtr(env, from.glyphs, from.glyphCount),
+        glyphs_length: (unsigned int)from.glyphCount
+    };
+}
+
+Font ToFont(exFont from) {
+    return Font{
+        baseSize: from.baseSize, 
+        glyphCount: from.glyphCount,
+        glyphPadding: from.glyphPadding,
+        texture: ToTexture(from.texture),
+        recs: ToRectanglePtr(from.recs, from.recs_length),
+        glyphs: ToGlyphInfoPtr(from.glyphs, from.glyphs_length)
+    };
+}
+
 exRenderTexture ToExRenderTexture(RenderTexture from) {
     return exRenderTexture{
         id: from.id,
@@ -191,7 +264,6 @@ RenderTexture ToRenderTexture(exRenderTexture from) {
 }
 
 exShader ToExShader(Shader from) {
-
     return exShader{
         id: from.id,
         locs: from.locs,  // This will probably break everything. So uh... Mentally prepare.

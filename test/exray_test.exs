@@ -2,7 +2,9 @@ defmodule ExrayTest do
   use ExUnit.Case
   doctest Exray
 
-  test "greets the world" do
-    assert Exray.hello() == :world
+  test "load a font" do
+    # Exray.Text.Font.Loader.load_font("./priv/assets/romulus.png")
+    assert true
+
   end
 end

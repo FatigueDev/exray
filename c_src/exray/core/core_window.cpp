@@ -95,6 +95,7 @@ UNIFEX_TERM set_window_icons(UnifexEnv *env, exImage* images, unsigned int image
 
 UNIFEX_TERM set_window_title(UnifexEnv *env, char *title){
     SetWindowTitle(title);
+    std::cout << "SET WINDOW TITLE : done" << std::endl;
     return set_window_title_result(env);
 }
 

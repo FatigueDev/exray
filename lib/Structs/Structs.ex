@@ -3,7 +3,7 @@ defmodule Exray.Structs do
 
   use TypedStruct
 
-  typedstruct [module: Vector2, enforce: true] do
+  typedstruct [module: Vector2] do #, enforce: true
     field :x, float, default: 0.0
     field :y, float, default: 0.0
   end
@@ -41,29 +41,29 @@ defmodule Exray.Structs do
     field :m15, float, default: 0.0
   end
 
-  typedstruct [module: Color, enforce: true] do
+  typedstruct [module: Color] do #, enforce: true
     field :r, non_neg_integer
     field :g, non_neg_integer
     field :b, non_neg_integer
     field :a, non_neg_integer
   end
 
-  typedstruct [module: Rectangle, enforce: true] do
+  typedstruct [module: Rectangle] do #, enforce: true
     field :x, float
     field :y, float
     field :width, float
     field :height, float
   end
 
-  typedstruct [module: Image, enforce: true] do
-    field :data, any # ! Potentially fucky wucky. Is a `void *`
+  typedstruct [module: Image] do #, enforce: true
+    field :data, [any] # ! Potentially fucky wucky. Is a `void *`
     field :width, integer
     field :height, integer
     field :mipmaps, integer
     field :format, integer
   end
 
-  typedstruct [module: Texture, enforce: true] do
+  typedstruct [module: Texture] do #, enforce: true
     field :id, non_neg_integer
     field :width, integer
     field :height, integer
@@ -73,14 +73,14 @@ defmodule Exray.Structs do
   # alias Texture, as: Texture2D
   # alias Texture, as: TextureCubemap
 
-  typedstruct [module: RenderTexture, enforce: true] do
+  typedstruct [module: RenderTexture] do #, enforce: true
     field :id, non_neg_integer
     field :texture, Texture.t
     field :depth, Texture.t
   end
   # alias RenderTexture, as: RenderTexture2D
 
-  typedstruct [module: NPatchInfo, enforce: true] do
+  typedstruct [module: NPatchInfo] do #, enforce: true
     field :source, Rectangle.t
     field :left, integer
     field :top, integer
@@ -89,7 +89,7 @@ defmodule Exray.Structs do
     field :layout, integer
   end
 
-  typedstruct [module: GlyphInfo, enforce: true] do
+  typedstruct [module: GlyphInfo] do #, enforce: true
     field :value, integer
     field :offsetX, integer
     field :offsetY, integer
@@ -97,16 +97,16 @@ defmodule Exray.Structs do
     field :image, Image.t
   end
 
-  typedstruct [module: Font, enforce: true] do
+  typedstruct [module: Font] do #, enforce: true
     field :baseSize, integer
     field :glyphCount, integer
     field :glyphPadding, integer
-    field :texture, Texture2D.t
+    field :texture, Texture.t
     field :recs, [Rectangle.t]
     field :glyphs, [GlyphInfo.t]
   end
 
-  typedstruct [module: Camera3D, enforce: true] do
+  typedstruct [module: Camera3D] do #, enforce: true
     field :position, Vector3.t
     field :target, Vector3.t
     field :up, Vector3.t
@@ -115,7 +115,7 @@ defmodule Exray.Structs do
   end
   # alias Camera3D, as: Camera
 
-  typedstruct [module: Camera2D, enforce: true] do
+  typedstruct [module: Camera2D] do #, enforce: true
     field :offset, Vector2.t
     field :target, Vector2.t
     field :rotation, float
@@ -142,35 +142,35 @@ defmodule Exray.Structs do
     field :vboId, [non_neg_integer], enforce: false
   end
 
-  typedstruct [module: Shader, enforce: true] do
+  typedstruct [module: Shader] do #, enforce: true
     field :id, non_neg_integer
     field :locs, [integer]
   end
 
-  typedstruct [module: MaterialMap, enforce: true] do
-    field :texture, Texture2D.t
+  typedstruct [module: MaterialMap] do #, enforce: true
+    field :texture, Texture.t
     field :color, Color.t
     field :value, float
   end
 
-  typedstruct [module: Material, enforce: true] do
+  typedstruct [module: Material] do #, enforce: true
     field :shader, Shader.t
     field :maps, [MaterialMap.t]
     field :params, [float], enforce: false # [4]
   end
 
-  typedstruct [module: Transform, enforce: true] do
+  typedstruct [module: Transform] do #, enforce: true
     field :translation, Vector3.t
     field :rotation, Quaternion.t
     field :scale, Vector3.t
   end
 
-  typedstruct [module: BoneInfo, enforce: true] do
+  typedstruct [module: BoneInfo] do #, enforce: true
     field :name, [non_neg_integer]
     field :parent, integer
   end
 
-  typedstruct [module: Model, enforce: true] do
+  typedstruct [module: Model] do #, enforce: true
     field :transform, Matrix.t
     field :meshCount, integer
     field :materialCount, integer
@@ -182,7 +182,7 @@ defmodule Exray.Structs do
     field :bindPose, [Transform.t], enforce: false
   end
 
-  typedstruct [module: ModelAnimation, enforce: true] do
+  typedstruct [module: ModelAnimation] do #, enforce: true
     field :boneCount, integer
     field :frameCount, integer
     field :bones, [BoneInfo.t]
@@ -190,24 +190,24 @@ defmodule Exray.Structs do
     field :name, String.t
   end
 
-  typedstruct [module: Ray, enforce: true] do
+  typedstruct [module: Ray] do #, enforce: true
     field :position, Vector3.t
     field :direction, Vector3.t
   end
 
-  typedstruct [module: RayCollision, enforce: true] do
+  typedstruct [module: RayCollision] do #, enforce: true
     field :hit, boolean
     field :distance, float
     field :point, Vector3.t
     field :normal, Vector3.t
   end
 
-  typedstruct [module: BoundingBox, enforce: true] do
+  typedstruct [module: BoundingBox] do #, enforce: true
     field :min, Vector3
     field :max, Vector3
   end
 
-  # typedstruct [module: Wave, enforce: true] do
+  # typedstruct [module: Wave] do #, enforce: true
   #   field :frameCount, non_neg_integer
   #   field :sampleRate, non_neg_integer
   #   field :sampleSize, non_neg_integer
@@ -247,7 +247,7 @@ defmodule Exray.Structs do
   #     void *ctxData;              // Audio context data, depends on type
   # } Music;
 
-  typedstruct [module: VrDeviceInfo, enforce: true] do
+  typedstruct [module: VrDeviceInfo] do #, enforce: true
     field :hResolution, integer
     field :vResolution, integer
     field :hScreenSize, float
@@ -260,7 +260,7 @@ defmodule Exray.Structs do
     field :chromaAbCorrection, [float]# [4]
   end
 
-  typedstruct [module: VrStereoConfig, enforce: true] do
+  typedstruct [module: VrStereoConfig] do #, enforce: true
     field :projection, [Matrix.t] # [2]
     field :viewOffset, [Matrix.t] # [2]
     field :leftLensCenter, [float] # [2]
@@ -271,19 +271,19 @@ defmodule Exray.Structs do
     field :scaleIn, [float] # [2]
   end
 
-  typedstruct [module: FilePathList, enforce: true] do
+  typedstruct [module: FilePathList] do #, enforce: true
     field :capacity, non_neg_integer
     field :count, non_neg_integer
     field :paths, [String.t], enforce: false
   end
 
-  typedstruct [module: AutomationEvent, enforce: true] do
+  typedstruct [module: AutomationEvent] do #, enforce: true
     field :frame, non_neg_integer
     field :type, non_neg_integer
     field :params, [integer], enforce: false # [4]
   end
 
-  typedstruct [module: AutomationEventList, enforce: true] do
+  typedstruct [module: AutomationEventList] do #, enforce: true
     field :capacity, non_neg_integer
     field :count, non_neg_integer
     field :events, [AutomationEvent.t]

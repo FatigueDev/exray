@@ -4,9 +4,9 @@ defmodule Exray.MixProject do
   def project do
     [
       app: :exray,
-      compilers: Mix.compilers ++ [:unifex, :bundlex],
-      version: "0.3.0",
-      elixir: "~> 1.17",
+      compilers: [:unifex, :bundlex] ++ Mix.compilers(),
+      version: "0.4.0",
+      elixir: "~> 1.17.3",
       start_permanent: Mix.env() == :prod,
       description: description(),
       package: package(),
@@ -27,8 +27,8 @@ defmodule Exray.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:unifex, "~> 1.2.0"},
-      {:typed_struct, "~> 0.3.0"},
+      {:unifex, "1.2.1"},
+      {:typed_struct, "0.3.0"},
       {:credo, "~> 1.7.7", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
@@ -43,8 +43,8 @@ defmodule Exray.MixProject do
       # This option is only needed when you don't want to use the OTP application name
       name: "exray",
       # These are the default files included in the package
-      files: ~w(c_src lib priv bundlex.exs .formatter.exs mix.exs README.*),
-      exclude_patterns: ~w(priv/bundlex c_src/exray/_generated c_src/exray/core/_generated c_src/exray/shapes/_generated),
+      files: ~w(c_src lib priv doc_extras bundlex.exs .formatter.exs mix.exs README.*),
+      exclude_patterns: ~w(priv/bundlex lib/_examples c_src/**/_generated),
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => "https://github.com/FatigueDev/exray"}
     ]
@@ -63,25 +63,35 @@ defmodule Exray.MixProject do
       groups_for_extras: [
         "Changelogs/Completion": ["doc_extras/changelog.md", "doc_extras/completed-modules.md"],
         "Getting Started": "README.md",
-        "Guides": ~r"doc_extras/guides/.*\.md$"
+        Guides: ~r"doc_extras/guides/.*\.md$"
       ],
       groups_for_modules: [
-        "Core": [
+        Core: [
           Exray.Core.Cursor,
           Exray.Core.Drawing,
+          Exray.Core.FrameControl,
           Exray.Core.Input.Keyboard,
           Exray.Core.Input.Mouse,
           Exray.Core.KeyCodes,
+          Exray.Core.Misc,
+          Exray.Core.Random,
           Exray.Core.Screenspace,
           Exray.Core.Timing,
           Exray.Core.Window
         ],
-        "Shapes": [
+        Shapes: [
           Exray.Shapes.Basic,
           Exray.Shapes.Collision,
           Exray.Shapes.Spline
         ],
-        "Structs": [
+        Text: [
+          Exray.Text.Drawing,
+          Exray.Text.Loading
+        ],
+        Colors: [
+          Exray.Colors
+        ],
+        Structs: [
           Exray.Structs.AutomationEvent,
           Exray.Structs.AutomationEventList,
           Exray.Structs.BoneInfo,
@@ -116,5 +126,4 @@ defmodule Exray.MixProject do
       ]
     ]
   end
-
 end

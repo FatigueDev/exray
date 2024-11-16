@@ -1,6 +1,7 @@
 module Exray.Core.Cursor.Loader
 interface [NIF, CNode]
 callback :load
+callback :upgrade
 state_type "State"
 
 spec show_cursor() :: :ok

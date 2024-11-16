@@ -35,6 +35,13 @@ void handle_destroy_state(UnifexEnv *env, State *state) {
     state->obj = nullptr;
 }
 
+int handle_upgrade(UnifexEnv* env, void** priv_data, void** old_priv_data){
+    UNIFEX_UNUSED(env);
+    UNIFEX_UNUSED(priv_data);
+    UNIFEX_UNUSED(old_priv_data);
+    return 0;
+}
+
 // UNIFEX_TERM vector2_test(UnifexEnv* env, exVector2 vec2) {
 //     // exVector2 exResult{x = (float)x, y = (float)y};
 //     std:: cout << " Vec2: " << vec2.x << " " << vec2.y << std::endl;

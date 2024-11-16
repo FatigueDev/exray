@@ -1,6 +1,7 @@
 module Exray.Core.Input.Mouse.Loader
 interface [NIF, CNode]
 callback :load
+callback :upgrade
 state_type "State"
 
 Code.require_file("./c_src/exray/exray_types.exs")

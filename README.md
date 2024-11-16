@@ -9,7 +9,7 @@ This package can be installed by adding `exray` to your list of dependencies in 
 ```elixir
 def deps do
   [
-    {:exray, "~> 0.3.0"}
+    {:exray, "~> 0.4.0"}
   ]
 end
 ```
