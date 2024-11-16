@@ -42,6 +42,21 @@ int handle_upgrade(UnifexEnv* env, void** priv_data, void** old_priv_data){
     return 0;
 }
 
+// This is CNode stuff. 
+// int handle_main(int argc, char **argv) {
+//     UnifexEnv env;
+//     if (unifex_cnode_init(argc, argv, &env)) {
+//         return 1;
+//     }
+
+//     while (!unifex_cnode_receive(&env))
+//         ;
+
+//     unifex_cnode_destroy(&env);
+//     return 0;
+// }
+
+// This is STATE stuff.
 // UNIFEX_TERM vector2_test(UnifexEnv* env, exVector2 vec2) {
 //     // exVector2 exResult{x = (float)x, y = (float)y};
 //     std:: cout << " Vec2: " << vec2.x << " " << vec2.y << std::endl;

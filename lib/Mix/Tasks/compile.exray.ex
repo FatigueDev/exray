@@ -18,10 +18,13 @@ defmodule Mix.Tasks.Compile.Exray do
   def run(_args) do
     {:ok, exray_root} = Bundlex.Helper.MixHelper.get_project_dir(:exray)
 
+    {:ok, _apps} = Application.ensure_all_started(:exray)
     {:ok, _apps} = Application.ensure_all_started(:unifex)
     {:ok, _apps} = Application.ensure_all_started(:bundlex)
 
+    IO.puts("Compiling Unifex for Exray...")
     compile_unifex(exray_root)
+    IO.puts("Compiling Bundlex for Exray...")
     compile_bundlex()
     :ok
   end
@@ -43,11 +46,12 @@ defmodule Mix.Tasks.Compile.Exray do
   # Shamelessly copy pasting the compile.bundlex code because they discard `args`, which they should use to select app
   def compile_bundlex() do
     commands = []
+
     app = MixHelper.get_app!(:exray)
     platform = Platform.get_target!()
 
     project =
-      with {:ok, project} <- Project.get(app) do
+      with({:ok, project} <- Project.get(:exray)) do
         project
       else
         {:error, reason} ->
