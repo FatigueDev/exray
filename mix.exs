@@ -35,7 +35,7 @@ defmodule Exray.MixProject do
   end
 
   defp description() do
-    "Raylib bindings for Elixir. Don't use it yet, heavily WIP."
+    "Raylib bindings for Elixir"
   end
 
   defp package() do
