@@ -1,4 +1,4 @@
-defmodule Exray.Colors do
+defmodule Exray.Utils.Colors do
   @moduledoc """
   Helper functions in order to stamp default colour definitions as Exray.Structs.Color structs
   """

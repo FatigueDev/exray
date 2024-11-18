@@ -42,8 +42,8 @@ defmodule Exray.Examples.SuperCoolGame do
   end
 
   defp draw() do
-    # Before drawing, we'll clear the background with the Exray.Colors.black function result- Which is %Exray.Structs.Color{r: 0, g: 0, b: 0, a: 255}.
-    clear_background(Exray.Colors.black())
+    # Before drawing, we'll clear the background with the Exray.Utils.Colors.black function result- Which is %Exray.Structs.Color{r: 0, g: 0, b: 0, a: 255}.
+    clear_background(Exray.Utils.Colors.black())
     begin_drawing()
 
     # Nothing yet!

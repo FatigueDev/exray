@@ -73,6 +73,28 @@ Rectangle* ToRectanglePtr(exRectangle *from, unsigned int length) {
     return converted;
 }
 
+exNPatchInfo ToExNPatchInfo(NPatchInfo from) {
+    return exNPatchInfo{
+        source: ToExRectangle(from.source),
+        left: from.left,
+        top: from.top,
+        right: from.right,
+        bottom: from.bottom,
+        layout: from.layout,
+    };
+}
+
+NPatchInfo ToNPatchInfo(exNPatchInfo from) {
+    return NPatchInfo{
+        source: ToRectangle(from.source),
+        left: from.left,
+        top: from.top,
+        right: from.right,
+        bottom: from.bottom,
+        layout: from.layout,
+    };
+}
+
 exImage ToExImage(UnifexEnv *env, Image from) {
     State* state = unifex_alloc_state(env);
     state->obj = from.data;

@@ -22,6 +22,10 @@ defmodule Mix.Tasks.Compile.Exray do
     {:ok, _apps} = Application.ensure_all_started(:unifex)
     {:ok, _apps} = Application.ensure_all_started(:bundlex)
 
+    IO.puts(
+      "If Exray just spat out heaps of red errors about missing functions, the next lines are going to compile them; don't worry about it."
+    )
+
     IO.puts("Compiling Unifex for Exray...")
     compile_unifex(exray_root)
     IO.puts("Compiling Bundlex for Exray...")

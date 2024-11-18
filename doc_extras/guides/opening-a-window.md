@@ -2,6 +2,8 @@
 
 ## Baby Steps - Running from IEX to get the vibe
 
+`Made with 0.4.0`. Likely out of date, but a good overall jist of what's going on.
+
 Once you have ensured that you are setup by adding `:exray` to your [mix dependencies](../../README.md#adding-exray-to-your-mixexs-dependencies) and [compiled your NIFs](../../README.md#compiling-exray-nifs), you're ready to rumble.
 
 Begin by running `iex -S mix` in the root of your project, then try the following:
@@ -149,8 +151,8 @@ defmodule SuperCoolGame do
   end
 
   defp draw() do
-    # Before drawing, we'll clear the background with the Exray.Colors.black function result- Which is %Exray.Structs.Color{r: 0, g: 0, b: 0, a: 255}.
-    clear_background(Exray.Colors.black())
+    # Before drawing, we'll clear the background with the Exray.Utils.Colors.black function result- Which is %Exray.Structs.Color{r: 0, g: 0, b: 0, a: 255}.
+    clear_background(Exray.Utils.Colors.black())
     begin_drawing()
 
     # Nothing yet!

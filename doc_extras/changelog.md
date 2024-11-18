@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.0
+- Added `Exray.Textures.Image` and `Exray.Textures.Texture`, which provide load, draw and basic image generation functions.
+- Added `Exray.Utils.Guard` module, which is the starting point for things like `is_vector2(val)` and `is_matrix(val)`.
+- Added `Exray.Utils.Math`, which exposes the common math functions from Raymath. Mostly floating point stuff, but..
+- Added `Exray.Structs.Vector2` math functions. Lerp, normalize, add, multiply, negate- Plenty to mess around with.
+- Changed `Exray.Structs` hierarchy to accomodate structs potentially having multiple helper/math functions embedded. For example, `Exray.Structs.Vector2` now includes it's associated math modules, so using `alias Exray.Structs.Vector2` you now have access to `Vector2.math_stuff()`.
+
 ## 0.5.0
 - Added a [new build process for NIF compilation](../README.md#why-do-i-have-to-compile-the-nifs-manually-now).
 

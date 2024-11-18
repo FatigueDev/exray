@@ -31,3 +31,5 @@ exray-*.tar
 /priv/bundlex/
 
 /c_src/exray/_generated/
+
+/lib/_examples/testbed.exs

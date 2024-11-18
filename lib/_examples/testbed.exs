@@ -24,19 +24,23 @@ defmodule Testbed do
   import Exray.Core.Input.Mouse
   import Exray.Shapes.Basic
   import Exray.Text.Drawing
-  import Exray.Textures.Image
+  import Exray.Textures.Image.Loading
+  import Exray.Textures.Texture.Loading
 
   def init() do
     init_window(500, 500, "Testbed.exs")
     set_target_fps(60)
-    img = Exray.Textures.Image.Loader.load_image("./priv/assets/image.png")
-    texture = Exray.Textures.Image.Loader.load_texture_from_image(img)
-    game_loop(%{font: nil, should_load: false, texture: texture})
+    # img = Exray.Textures.Image.Loader.load_image("./priv/assets/image.png")
+    # texture = Exray.Textures.Image.Loader.load_texture_from_image(img)
+
+    # img = load_image_raw("./priv/assets/image.png", 32, 32, 7, 8) |> image_is_ready?() |> dbg
+
+    img = load_texture("./priv/assets/image.png") |> texture_is_ready?() |> dbg
+
+    game_loop(%{font: nil, should_load: false, texture: img})
   end
 
   def game_loop(state) do
-    # dbg state
-
     unless window_is_ready?() do
       game_loop(state)
     end
@@ -51,10 +55,6 @@ defmodule Testbed do
   end
 
   def update(state) do
-    # if window_should_close?() do
-    #   IO.puts("Window should close now.")
-    # end
-
     if mouse_button_is_pressed?(0) do
       IO.puts("Clickity clack you pressed mouse 0")
     end
@@ -65,7 +65,7 @@ defmodule Testbed do
     end
 
     if key_is_pressed?(key_s()) do
-      take_screenshot("/run/media/fatigue/hdd/Pictures/exray_image.png")
+      take_screenshot("exray_image.png")
     end
 
     if key_is_pressed?(key_q()) do
@@ -93,7 +93,7 @@ defmodule Testbed do
   end
 
   def draw(state) do
-    clear_background(Exray.Colors.black())
+    clear_background(Exray.Utils.Colors.black())
     begin_drawing()
 
     draw_fps(4, 4)
@@ -103,7 +103,7 @@ defmodule Testbed do
     # if length(state.textures) > 0 do
     #   Enum.each(state.textures, fn tex ->
 
-    Exray.Textures.Image.Loader.draw_texture(state.texture, 2, 25, Exray.Colors.white())
+    # Exray.Textures.Image.Loader.draw_texture(state.texture, 2, 25, Exray.Colors.white())
 
     #   end)
     # end
@@ -129,9 +129,9 @@ defmodule Testbed do
     # ]
 
     # draw_line_strip(lines, line_color)
-    draw_circle(250, 250, 50.0, Exray.Colors.pink())
+    draw_circle(250, 250, 50.0, Exray.Utils.Colors.pink())
 
-    draw_line_v(%Vector2{x: 0.0, y: 64.0}, %Vector2{x: 50.0, y: 64.0}, Exray.Colors.red())
+    draw_line_v(%Vector2{x: 0.0, y: 64.0}, %Vector2{x: 50.0, y: 64.0}, Exray.Utils.Colors.red())
 
     # Works like a charm.
     # Enum.each(1..200, fn num ->

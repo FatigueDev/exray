@@ -30,13 +30,13 @@
 > > ☒ Basic shapes collision detection functions
 
 > ## ☐ module: rtextures
-> > ☐ Image loading functions\
-> > ☐ Image generation functions\
+> > ☒ Image loading functions\
+> > ☒ Image generation functions\
 > > ☐ Image manipulation functions\
 > > ☐ Image drawing functions\
-> > ☐ Texture loading functions\
+> > ☒ Texture loading functions\
 > > ☐ Texture configuration functions\
-> > ☐ Texture drawing functions\
+> > ☒ Texture drawing functions\
 > > ☐ Color/pixel related functions
 
 > ## ☐ module: rtext

@@ -5,7 +5,7 @@ defmodule Exray.MixProject do
     [
       app: :exray,
       compilers: Mix.compilers(),
-      version: "0.5.0",
+      version: "0.6.0",
       elixir: "~> 1.17.3",
       start_permanent: Mix.env() == :prod,
       description: description(),
@@ -67,62 +67,23 @@ defmodule Exray.MixProject do
         Guides: ~r"doc_extras/guides/.*\.md$"
       ],
       groups_for_modules: [
+        Utils: [
+          ~r/Exray.Utils.*/
+        ],
         Core: [
-          Exray.Core.Cursor,
-          Exray.Core.Drawing,
-          Exray.Core.FrameControl,
-          Exray.Core.Input.Keyboard,
-          Exray.Core.Input.Mouse,
-          Exray.Core.KeyCodes,
-          Exray.Core.Misc,
-          Exray.Core.Random,
-          Exray.Core.Screenspace,
-          Exray.Core.Timing,
-          Exray.Core.Window
+          ~r/Exray.Core.*/
         ],
         Shapes: [
-          Exray.Shapes.Basic,
-          Exray.Shapes.Collision,
-          Exray.Shapes.Spline
+          ~r/Exray.Shapes.*/
         ],
         Text: [
-          Exray.Text.Drawing,
-          Exray.Text.Loading
+          ~r/Exray.Text.*/
         ],
-        Colors: [
-          Exray.Colors
+        Textures: [
+          ~r/Exray.Textures.*/
         ],
         Structs: [
-          Exray.Structs.AutomationEvent,
-          Exray.Structs.AutomationEventList,
-          Exray.Structs.BoneInfo,
-          Exray.Structs.BoundingBox,
-          Exray.Structs.Camera2D,
-          Exray.Structs.Camera3D,
-          Exray.Structs.Color,
-          Exray.Structs.FilePathList,
-          Exray.Structs.Font,
-          Exray.Structs.GlyphInfo,
-          Exray.Structs.Image,
-          Exray.Structs.Material,
-          Exray.Structs.MaterialMap,
-          Exray.Structs.Matrix,
-          Exray.Structs.Mesh,
-          Exray.Structs.Model,
-          Exray.Structs.ModelAnimation,
-          Exray.Structs.NPatchInfo,
-          Exray.Structs.Ray,
-          Exray.Structs.RayCollision,
-          Exray.Structs.Rectangle,
-          Exray.Structs.RenderTexture,
-          Exray.Structs.Shader,
-          Exray.Structs.Texture,
-          Exray.Structs.Transform,
-          Exray.Structs.Vector2,
-          Exray.Structs.Vector3,
-          Exray.Structs.Vector4,
-          Exray.Structs.VrDeviceInfo,
-          Exray.Structs.VrStereoConfig
+          ~r/Exray.Structs.*/
         ]
       ]
     ]

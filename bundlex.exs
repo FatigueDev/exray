@@ -6,9 +6,11 @@ defmodule Exray.BundlexProject do
   @blob "https://github.com/raysan5/raylib/releases/download/5.0/raylib-5.0_linux_amd64.tar.gz"
   @lib_name "libraylib"
   @compiler_flags [
+    "-fPIC",
     "-Wno-narrowing",
     "-s",
-    "-O2"
+    "-O2",
+    "#{if Mix.env(:dbg), do: "-g", else: ""}"
   ]
   @os_deps [
     raylib: [{:precompiled, @blob, @lib_name}]
@@ -190,9 +192,41 @@ defmodule Exray.BundlexProject do
         compiler_flags: @compiler_flags
       ],
 
-      # -- Textures --
-      textures_image: [
-        sources: ["./textures/textures_image.cpp"],
+      # -- Textures : Image --
+      textures_image_loading: [
+        sources: ["./textures/image/textures_image_loading.cpp"],
+        interface: [:nif, :cnode],
+        includes: @includes,
+        lib_dirs: @lib_dirs,
+        preprocessor: Unifex,
+        language: :cpp,
+        os_deps: @os_deps,
+        compiler_flags: @compiler_flags
+      ],
+      textures_image_generation: [
+        sources: ["./textures/image/textures_image_generation.cpp"],
+        interface: [:nif, :cnode],
+        includes: @includes,
+        lib_dirs: @lib_dirs,
+        preprocessor: Unifex,
+        language: :cpp,
+        os_deps: @os_deps,
+        compiler_flags: @compiler_flags
+      ],
+
+      # -- Textures : Texture --
+      textures_texture_loading: [
+        sources: ["./textures/texture/textures_texture_loading.cpp"],
+        interface: [:nif, :cnode],
+        includes: @includes,
+        lib_dirs: @lib_dirs,
+        preprocessor: Unifex,
+        language: :cpp,
+        os_deps: @os_deps,
+        compiler_flags: @compiler_flags
+      ],
+      textures_texture_drawing: [
+        sources: ["./textures/texture/textures_texture_drawing.cpp"],
         interface: [:nif, :cnode],
         includes: @includes,
         lib_dirs: @lib_dirs,

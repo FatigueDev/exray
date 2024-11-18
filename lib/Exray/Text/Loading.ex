@@ -31,7 +31,7 @@ defmodule Exray.Text.Loading do
   @doc """
   Load font from Image (XNA style)
   """
-  @spec load_font_from_image(image :: Image.t(), color_key :: Color, first_char :: integer) ::
+  @spec load_font_from_image(image :: Image.t(), color_key :: Color.t(), first_char :: integer) ::
           font :: Font.t()
   defdelegate load_font_from_image(image, color_key, first_char), to: Exray.Text.Loading.Loader
 
