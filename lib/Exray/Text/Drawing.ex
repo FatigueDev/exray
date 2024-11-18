@@ -3,6 +3,10 @@ defmodule Exray.Text.Drawing do
   Draw text onto the window
   """
 
+  alias Exray.Structs.Color
+  alias Exray.Structs.Font
+  alias Exray.Structs.Vector2
+
   @doc """
   Draw current FPS
   """

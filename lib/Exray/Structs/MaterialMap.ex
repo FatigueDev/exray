@@ -4,6 +4,9 @@ defmodule Exray.Structs.MaterialMap do
   """
   use TypedStruct
 
+  alias Exray.Structs.Texture
+  alias Exray.Structs.Color
+
   typedstruct enforce: true do
     field :texture, Texture.t()
     field :color, Color.t()

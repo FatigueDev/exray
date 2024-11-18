@@ -4,6 +4,8 @@ defmodule Exray.Structs.GlyphInfo do
   """
   use TypedStruct
 
+  alias Exray.Structs.Image
+
   typedstruct enforce: true do
     field :value, integer, default: 0
     field :offsetX, integer, default: 0

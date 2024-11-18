@@ -4,6 +4,8 @@ defmodule Exray.Structs.Camera3D do
   """
   use TypedStruct
 
+  alias Exray.Structs.Vector3
+
   typedstruct enforce: true do
     field :position, Vector3.t()
     field :target, Vector3.t()

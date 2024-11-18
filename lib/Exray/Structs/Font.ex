@@ -4,6 +4,10 @@ defmodule Exray.Structs.Font do
   """
   use TypedStruct
 
+  alias Exray.Structs.Texture
+  alias Exray.Structs.Rectangle
+  alias Exray.Structs.GlyphInfo
+
   typedstruct enforce: true do
     field :baseSize, integer, default: 0
     field :glyphCount, integer, default: 0

@@ -4,6 +4,8 @@ defmodule Exray.Structs.AutomationEventList do
   """
   use TypedStruct
 
+  alias Exray.Structs.AutomationEvent
+
   typedstruct enforce: true do
     field :capacity, non_neg_integer, default: 0
     field :count, non_neg_integer, default: 0

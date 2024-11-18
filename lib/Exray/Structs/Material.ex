@@ -4,6 +4,9 @@ defmodule Exray.Structs.Material do
   """
   use TypedStruct
 
+  alias Exray.Structs.Shader
+  alias Exray.Structs.MaterialMap
+
   typedstruct enforce: true do
     field :shader, Shader.t()
     field :maps, [MaterialMap.t()], default: []

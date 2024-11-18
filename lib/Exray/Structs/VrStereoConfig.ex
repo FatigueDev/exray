@@ -4,6 +4,8 @@ defmodule Exray.Structs.VrStereoConfig do
   """
   use TypedStruct
 
+  alias Exray.Structs.Matrix
+
   typedstruct enforce: true do
     # [2]
     field :projection, [Matrix.t()], default: []

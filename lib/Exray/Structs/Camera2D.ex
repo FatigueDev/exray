@@ -4,6 +4,8 @@ defmodule Exray.Structs.Camera2D do
   """
   use TypedStruct
 
+  alias Exray.Structs.Vector2
+
   typedstruct enforce: true do
     field :offset, Vector2.t()
     field :target, Vector2.t()

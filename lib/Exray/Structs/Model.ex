@@ -4,6 +4,12 @@ defmodule Exray.Structs.Model do
   """
   use TypedStruct
 
+  alias Exray.Structs.Matrix
+  alias Exray.Structs.Mesh
+  alias Exray.Structs.Material
+  alias Exray.Structs.BoneInfo
+  alias Exray.Structs.Transform
+
   typedstruct enforce: true do
     field :transform, Matrix.t()
     field :meshCount, integer, default: 0

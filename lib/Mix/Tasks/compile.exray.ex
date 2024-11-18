@@ -55,9 +55,10 @@ defmodule Mix.Tasks.Compile.Exray do
     platform = Platform.get_target!()
 
     project =
-      with({:ok, project} <- Project.get(:exray)) do
-        project
-      else
+      case Project.get(:exray) do
+        {:ok, project} ->
+          project
+
         {:error, reason} ->
           Bundlex.Output.raise(
             "Cannot get project for app: #{inspect(app)}, reason: #{inspect(reason)}"

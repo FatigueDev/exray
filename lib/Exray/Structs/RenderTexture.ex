@@ -4,6 +4,8 @@ defmodule Exray.Structs.RenderTexture do
   """
   use TypedStruct
 
+  alias Exray.Structs.Texture
+
   typedstruct enforce: true do
     field :id, non_neg_integer, default: 0
     field :texture, Texture.t()

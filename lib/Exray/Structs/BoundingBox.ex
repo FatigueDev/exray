@@ -4,6 +4,8 @@ defmodule Exray.Structs.BoundingBox do
   """
   use TypedStruct
 
+  alias Exray.Structs.Vector3
+
   typedstruct enforce: true do
     field :min, Vector3.t()
     field :max, Vector3.t()

@@ -4,6 +4,8 @@ defmodule Exray.Structs.NPatchInfo do
   """
   use TypedStruct
 
+  alias Exray.Structs.Rectangle
+
   typedstruct enforce: true do
     field :source, Rectangle.t()
     field :left, integer, default: 0

@@ -4,6 +4,9 @@ defmodule Exray.Structs.ModelAnimation do
   """
   use TypedStruct
 
+  alias Exray.Structs.BoneInfo
+  alias Exray.Structs.Transform
+
   typedstruct enforce: true do
     field :boneCount, integer, default: 0
     field :frameCount, integer, default: 0

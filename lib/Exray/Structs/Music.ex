@@ -4,14 +4,8 @@ defmodule Exray.Structs.Music do
   """
   use TypedStruct
 
-  # typedef struct Music {
-  #     AudioStream stream;         // Audio stream
-  #     unsigned int frameCount;    // Total number of frames (considering channels)
-  #     bool looping;               // Music looping enable
+  alias Exray.Structs.AudioStream
 
-  #     int ctxType;                // Type of music context (audio filetype)
-  #     void *ctxData;              // Audio context data, depends on type
-  # } Music;
   typedstruct enforce: true do
     field :stream, AudioStream.t()
     field :frame_count, non_neg_integer, default: 0
